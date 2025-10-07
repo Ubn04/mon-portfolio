@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Urbain BODJRENOU | Développeur Fullstack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --font-primary: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .custom-navbar {
+            background: rgba(44, 62, 80, 0.95) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .custom-navbar.scrolled {
+            background: var(--primary-color) !important;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        /* Hero Contact */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero .lead {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            padding: 80px 0;
+            background: var(--light-bg);
+            position: relative;
+        }
+
+        /* Contact Info Cards */
+        .contact-info {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .contact-info:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .contact-info i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info:hover i {
+            transform: scale(1.2);
+        }
+
+        .contact-info h5 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: var(--light-text);
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+            font-weight: 400;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Submit Button */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Social Links */
+        .social-section {
+            padding: 60px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .social-links-extended {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: var(--light-bg);
+            min-width: 120px;
+        }
+
+        .social-link-item:hover {
+            transform: translateY(-5px);
+            color: var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+
+        .social-link-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-link-item span {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            background: var(--light-bg);
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.3"/></svg>');
+            background-size: 50px 50px;
+        }
+
+        .map-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .map-content i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-item {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .faq-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer {
+            color: var(--light-text);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-hero {
+                padding: 120px 0 60px;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .contact-info {
+                margin-bottom: 2rem;
+            }
+
+            .social-links-extended {
+                gap: 1rem;
+            }
+
+            .social-link-item {
+                min-width: 100px;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-form h3 {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary {
+                width: 100%;
+            }
+        }
+
+        /* Form Validation Styles */
+        .form-control.is-invalid {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+        }
+
+        .form-control.is-valid {
+            border-color: var(--success-color);
+            box-shadow: 0 0 0 0.2rem rgba(39, 174, 96, 0.25);
+        }
+
+        .invalid-feedback {
+            color: var(--accent-color);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Success Message */
+        .alert-success {
+            background: linear-gradient(135deg, var(--success-color), #2ecc71);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Urbain B.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">À Propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold">Travaillons Ensemble</h1>
+                    <p class="lead">
+                        Discutons de votre prochain projet et créons quelque chose d'extraordinaire. 
+                        Je suis toujours ouvert aux nouvelles opportunités et collaborations.
+                    </p>
+                    <div class="mt-4">
+                        <span class="badge bg-light text-dark me-2 p-2">Disponible pour freelance</span>
+                        <span class="badge bg-light text-dark me-2 p-2">Temps de réponse: 24h</span>
+                        <span class="badge bg-light text-dark p-2">Projets internationaux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Restons en Contact</h2>
+                    <p class="section-subtitle text-muted">Plusieurs façons de me joindre</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 fade-in" style="animation-delay: 0.1s;">
+                    <div class="contact-info">
+                        <i class="fas fa-envelope fa-2x text-primary"></i>
+                        <h5>Email</h5>
+                        <p>urbainbodjrenou823@email.com</p>
+                        <small class="text-muted">Réponse sous 24h</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 fade-in" style="animation-delay: 0.2s;">
+                    <div class="contact-info">
+                        <i class="fas fa-phone fa-2x text-success"></i>
+                        <h5>Téléphone</h5>
+                        <p>+229 01 53 40 98 98 </p>
+                        <small class="text-muted">Lun - Ven, 9h - 18h</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 fade-in" style="animation-delay: 0.3s;">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt fa-2x text-warning"></i>
+                        <h5>Localisation</h5>
+                        <p>Cotonou-porto-novo, Bénin</p>
+                        <small class="text-muted">Travail à distance disponible</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto fade-in" style="animation-delay: 0.4s;">
+                    <div class="contact-form">
+                        <h3>Envoyez-moi un message</h3>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <input type="text" class="form-control" placeholder="Votre nom complet" required>
+                                    <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <input type="email" class="form-control" placeholder="Votre adresse email" required>
+                                    <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <select class="form-control" required>
+                                    <option value="" disabled selected>Type de projet</option>
+                                    <option value="web">Site Web</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="mobile">Application Mobile</option>
+                                    <option value="consulting">Consultation</option>
+                                    <option value="other">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <input type="text" class="form-control" placeholder="Sujet du message" required>
+                                <div class="invalid-feedback">Veuillez entrer un sujet.</div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <textarea class="form-control" rows="6" placeholder="Décrivez votre projet en détail..." required></textarea>
+                                <div class="invalid-feedback">Veuillez entrer votre message.</div>
+                            </div>
+                            
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="newsletter" checked>
+                                <label class="form-check-label text-muted" for="newsletter">
+                                    Recevoir les mises à jour et opportunités de collaboration
+                                </label>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links -->
+    <section class="social-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h3>Suivez-moi sur les réseaux</h3>
+                    <p class="text-muted">Restons connectés pour les mises à jour et collaborations</p>
+                </div>
+            </div>
+            <div class="social-links-extended">
+                <a href="#" class="social-link-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="#" class="social-link-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-link-item">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="social-link-item">
+                    <i class="fab fa-dribbble"></i>
+                    <span>Dribbble</span>
+                </a>
+                <a href="#" class="social-link-item">
+                    <i class="fab fa-behance"></i>
+                    <span>Behance</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h3>Questions Fréquentes</h3>
+                    <p class="text-muted">Quelques informations utiles</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 fade-in">
+                    <div class="faq-item">
+                        <div class="faq-question">Quel est votre délai de réponse ?</div>
+                        <div class="faq-answer">
+                            Je m'efforce de répondre à tous les messages dans les 24 heures. Pour les demandes urgentes, 
+                            privilégiez l'appel téléphonique.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 fade-in">
+                    <div class="faq-item">
+                        <div class="faq-question">Acceptez-vous les projets internationaux ?</div>
+                        <div class="faq-answer">
+                            Absolument ! Je travaille avec des clients du monde entier. Le travail à distance 
+                            et les fuseaux horaires différents ne sont pas un problème.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 fade-in">
+                    <div class="faq-item">
+                        <div class="faq-question">Proposez-vous des consultations gratuites ?</div>
+                        <div class="faq-answer">
+                            Oui, je propose une consultation initiale gratuite de 30 minutes pour discuter 
+                            de votre projet et voir comment je peux vous aider.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 fade-in">
+                    <div class="faq-item">
+                        <div class="faq-question">Quelles technologies utilisez-vous ?</div>
+                        <div class="faq-answer">
+                            Je travaille avec React, Django, PHP, et bien d'autres technologies modernes. 
+                            Consultez ma page <a href="about.html">À Propos</a> pour plus de détails.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-placeholder">
+            <div class="map-content">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>Cotonou, Bénin</h4>
+                <p>Disponible pour des projets dans le monde entier</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>Urbain BODJRENOU</h5>
+                    <p>Développeur Fullstack passionné par la création de solutions digitales innovantes.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Urbain BODJRENOU. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.custom-navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Form validation
+            const contactForm = document.getElementById('contactForm');
+            const formControls = contactForm.querySelectorAll('.form-control');
+            
+            formControls.forEach(control => {
+                control.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                    } else {
+                        this.classList.remove('is-valid');
+                        this.classList.add('is-invalid');
+                    }
+                });
+            });
+
+            // Form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                formControls.forEach(control => {
+                    if (!control.checkValidity()) {
+                        isValid = false;
+                        control.classList.add('is-invalid');
+                    }
+                });
+
+                if (isValid) {
+                    // Simulate form submission
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Envoi en cours...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        // Show success message
+                        const alert = document.createElement('div');
+                        alert.className = 'alert alert-success mt-4';
+                        alert.innerHTML = `
+                            <h4><i class="fas fa-check-circle me-2"></i>Message envoyé avec succès !</h4>
+                            <p class="mb-0">Je vous répondrai dans les plus brefs délais.</p>
+                        `;
+                        contactForm.parentNode.insertBefore(alert, contactForm.nextSibling);
+                        
+                        // Reset form
+                        contactForm.reset();
+                        formControls.forEach(control => {
+                            control.classList.remove('is-valid', 'is-invalid');
+                        });
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Remove success message after 5 seconds
+                        setTimeout(() => {
+                            alert.remove();
+                        }, 5000);
+                    }, 2000);
+                }
+            });
+
+            // Animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
