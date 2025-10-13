@@ -458,6 +458,167 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Styles pour la nouvelle présentation des compétences */
+
+.skills-description {
+    margin-top: 1.5rem;
+}
+
+.skill-statement {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--success-color);
+    transition: all 0.3s ease;
+}
+
+.skill-statement:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tech-stack-display {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.tech-group {
+    margin-bottom: 2rem;
+}
+
+.tech-group h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.tech-tag-large {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tech-tag-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+/* Styles pour about.html */
+.expertise-list {
+    margin-top: 1.5rem;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.expertise-icon {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.expertise-content h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.expertise-content p {
+    color: var(--light-text);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.global-expertise {
+    background: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.competence-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.competence-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.competence-card h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.competence-card p {
+    color: var(--light-text);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Couleurs supplémentaires */
+.text-purple { color: #6f42c1; }
+.text-indigo { color: #6610f2; }
+.text-teal { color: #20c997; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tech-tag-large {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .expertise-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .expertise-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .competence-card {
+        margin-bottom: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -572,104 +733,120 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Mes Compétences</h2>
-                    <p class="section-subtitle">Un panorama de mes expertises techniques</p>
-                </div>
+   <!-- Remplace la section compétences dans about.html par ceci -->
+
+<!-- Skills Section -->
+<section class="skills-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5 fade-in">
+                <h2 class="section-title">Mon Expertise Technique</h2>
+                <p class="section-subtitle">Un panorama complet de mes compétences en développement</p>
             </div>
-            <div class="skills-container fade-in">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="skill-category">
-                            <h4><i class="fas fa-palette text-primary"></i> Frontend</h4>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">HTML5/CSS3</span>
-                                    <span class="skill-percentage">95%</span>
+        </div>
+        
+        <div class="skills-container fade-in">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code text-primary me-3"></i>Développement Frontend</h4>
+                        <div class="expertise-list">
+                            <div class="expertise-item">
+                                <div class="expertise-icon">
+                                    <i class="fab fa-html5 text-danger"></i>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-percentage">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 88%"></div>
+                                <div class="expertise-content">
+                                    <h6>HTML5 & CSS3 Avancé</h6>
+                                    <p class="mb-0">Maîtrise complète des standards modernes du web, création d'interfaces responsives et accessibles</p>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-percentage">85%</span>
+                            
+                            <div class="expertise-item">
+                                <div class="expertise-icon">
+                                    <i class="fab fa-js-square text-warning"></i>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                <div class="expertise-content">
+                                    <h6>JavaScript & React</h6>
+                                    <p class="mb-0">Expertise en développement d'applications interactives avec React.js et JavaScript moderne</p>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Bootstrap</span>
-                                    <span class="skill-percentage">90%</span>
+                            
+                            <div class="expertise-item">
+                                <div class="expertise-icon">
+                                    <i class="fab fa-bootstrap text-purple"></i>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                <div class="expertise-content">
+                                    <h6>Frameworks CSS</h6>
+                                    <p class="mb-0">Maîtrise de Bootstrap et Tailwind pour un développement rapide et maintenable</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="skill-category">
-                            <h4><i class="fas fa-server text-success"></i> Backend</h4>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Python/Django</span>
-                                    <span class="skill-percentage">82%</span>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-server text-success me-3"></i>Développement Backend</h4>
+                        <div class="expertise-list">
+                            <div class="expertise-item">
+                                <div class="expertise-icon">
+                                    <i class="fab fa-python text-primary"></i>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 82%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PHP</span>
-                                    <span class="skill-percentage">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
+                                <div class="expertise-content">
+                                    <h6>Python & Django</h6>
+                                    <p class="mb-0">Expertise en développement d'applications robustes avec Django et Python</p>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">API REST</span>
-                                    <span class="skill-percentage">85%</span>
+                            
+                            <div class="expertise-item">
+                                <div class="expertise-icon">
+                                    <i class="fab fa-php text-indigo"></i>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">MySQL</span>
-                                    <span class="skill-percentage">78%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 78%"></div>
+                                <div class="expertise-content">
+                                    <h6>PHP Moderne</h6>
+                                    <p class="mb-0">Maîtrise du développement web avec PHP pour des solutions performantes</p>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Postgresql</span>
-                                    <span class="skill-percentage">78%</span>
+                            
+                            <div class="expertise-item">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-database text-teal"></i>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 78%"></div>
+                                <div class="expertise-content">
+                                    <h6>Bases de Données & APIs</h6>
+                                    <p class="mb-0">Compétences avancées en MySQL et conception d'API RESTful</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Compétences Globales -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="global-expertise">
+                        <h4 class="text-center mb-4">Compétences Transversales</h4>
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <div class="competence-card">
+                                    <i class="fas fa-mobile-alt fa-2x text-primary mb-3"></i>
+                                    <h6>Développement Responsive</h6>
+                                    <p class="small">Création d'applications optimisées pour tous les appareils</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="competence-card">
+                                    <i class="fas fa-rocket fa-2x text-success mb-3"></i>
+                                    <h6>Performance Web</h6>
+                                    <p class="small">Optimisation des performances et temps de chargement</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="competence-card">
+                                    <i class="fas fa-shield-alt fa-2x text-warning mb-3"></i>
+                                    <h6>Sécurité</h6>
+                                    <p class="small">Développement sécurisé et bonnes pratiques</p>
                                 </div>
                             </div>
                         </div>
@@ -677,7 +854,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Timeline Section -->
     <section class="timeline-section">

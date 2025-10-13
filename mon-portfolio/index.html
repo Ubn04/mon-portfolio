@@ -546,6 +546,166 @@
                 font-size: 2rem;
             }
         }
+        /* Styles pour la nouvelle présentation des compétences */
+
+.skills-description {
+    margin-top: 1.5rem;
+}
+
+.skill-statement {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--success-color);
+    transition: all 0.3s ease;
+}
+
+.skill-statement:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tech-stack-display {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.tech-group {
+    margin-bottom: 2rem;
+}
+
+.tech-group h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.tech-tag-large {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tech-tag-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+/* Styles pour about.html */
+.expertise-list {
+    margin-top: 1.5rem;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.expertise-icon {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.expertise-content h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.expertise-content p {
+    color: var(--light-text);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.global-expertise {
+    background: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.competence-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.competence-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.competence-card h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.competence-card p {
+    color: var(--light-text);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Couleurs supplémentaires */
+.text-purple { color: #6f42c1; }
+.text-indigo { color: #6610f2; }
+.text-teal { color: #20c997; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tech-tag-large {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .expertise-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .expertise-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .competence-card {
+        margin-bottom: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -629,117 +789,99 @@
         </div>
     </section>
 
-    <!-- Compétences Section -->
-    <section class="skills-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5 fade-in">
-                    <h2 class="section-title">Mes Compétences</h2>
-                    <p class="section-subtitle">Technologies modernes que je maîtrise parfaitement</p>
-                </div>
+  <!-- Remplace la section compétences dans index.html par ceci -->
+
+<!-- Compétences Section -->
+<section class="skills-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Expertise Technique</h2>
+                <p class="section-subtitle">Maîtrise approfondie des technologies modernes</p>
             </div>
-            <div class="row">
-                <!-- Frontend -->
-                <div class="col-md-6 mb-4 fade-in" style="animation-delay: 0.1s;">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-palette text-primary"></i> Frontend</h4>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">HTML5/CSS3</span>
-                                    <span class="skill-percentage">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-percentage">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-percentage">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Bootstrap</span>
-                                    <span class="skill-percentage">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
+        </div>
+        <div class="row">
+            <!-- Frontend -->
+            <div class="col-md-6 mb-4">
+                <div class="skill-category">
+                    <h4><i class="fas fa-palette me-2 text-primary"></i>Développement Frontend</h4>
+                    <div class="skills-description">
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Maîtrise avancée</strong> de HTML5, CSS3 et JavaScript ES6+ pour créer des interfaces utilisateur modernes et responsives
+                        </p>
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Expertise confirmée</strong> en React.js pour le développement d'applications web complexes et performantes
+                        </p>
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Expérience solide</strong> avec Bootstrap et Tailwind CSS pour un développement rapide et cohérent
+                        </p>
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Compétences approfondies</strong> en création d'interfaces utilisateur intuitives et d'expériences utilisateur optimisées
+                        </p>
                     </div>
                 </div>
-                
-                <!-- Backend -->
-                <div class="col-md-6 mb-4 fade-in" style="animation-delay: 0.2s;">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-server text-success"></i> Backend</h4>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Python/Django</span>
-                                    <span class="skill-percentage">82%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 82%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PHP</span>
-                                    <span class="skill-percentage">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">API REST</span>
-                                    <span class="skill-percentage">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">MySQL</span>
-                                    <span class="skill-percentage">78%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 78%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Postgre sql</span>
-                                    <span class="skill-percentage">78%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 78%"></div>
-                                </div>
-                            </div>
+            </div>
+            
+            <!-- Backend -->
+            <div class="col-md-6 mb-4">
+                <div class="skill-category">
+                    <h4><i class="fas fa-server me-2 text-success"></i>Développement Backend</h4>
+                    <div class="skills-description">
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Maîtrise complète</strong> de Python et Django pour le développement d'applications web robustes et sécurisées
+                        </p>
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Expertise professionnelle</strong> en PHP pour la création de solutions web dynamiques et évolutives
+                        </p>
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Compétences avancées</strong> en conception et développement d'API RESTful pour l'intégration de systèmes
+                        </p>
+                        <p class="skill-statement">
+                            <i class="fas fa-check text-success me-2"></i>
+                            <strong>Maîtrise opérationnelle</strong> de MySQL pour la modélisation et l'optimisation de bases de données relationnelles
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technologies Stack -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h4 class="mb-4">Stack Technologique Maîtrisée</h4>
+                <div class="tech-stack-display">
+                    <div class="tech-group">
+                        <h6>Frontend</h6>
+                        <div class="tech-tags">
+                            <span class="tech-tag-large">HTML5</span>
+                            <span class="tech-tag-large">CSS3</span>
+                            <span class="tech-tag-large">JavaScript</span>
+                            <span class="tech-tag-large">React</span>
+                            <span class="tech-tag-large">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="tech-group">
+                        <h6>Backend</h6>
+                        <div class="tech-tags">
+                            <span class="tech-tag-large">Python</span>
+                            <span class="tech-tag-large">Django</span>
+                            <span class="tech-tag-large">PHP</span>
+                            <span class="tech-tag-large">API REST</span>
+                            <span class="tech-tag-large">MySQL</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Projets en vedette -->
     <section class="featured-projects">
